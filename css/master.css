@@ -1,0 +1,18 @@
+@charset "utf-8";
+/*-----------------------------
+[Master Stylesheet]
+Project:        SPA
+Version:        1.0
+Last change:    10.05.2016
+Primary use:    Beauty & Spa Business Template
+Author:         Logicsforest
+URL:            https://shapebootstrap.net/profile/logicsforest
+*/
+
+@import "bootstrap.min.css";
+@import "font-awesome.min.css";
+@import "animate.min.css";
+@import "owl.carousel.css";
+@import "owl.theme.css";
+@import "style.css";
+@import "loaders.css";

@@ -1,0 +1,23 @@
+# Prevent Apache from serving .ht* files:
+<FilesMatch "^\.ht">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+Options +FollowSymLinks
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([aA-zZ])$  dostuff.php?id=$1
+
+RewriteCond %{HTTP_HOST} ^(www\.)?radixbeauty\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^agent/(.*)$ http://agent.radixbeauty.com/$1 [L,QSA,R=301]
+RewriteCond %{HTTP_HOST} ^radixbeauty\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.radixbeauty\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^agent\/?(.*)$ "http\:\/\/agent\.radixbeauty\.com\/$1" [R=301,L]
+
